@@ -1,0 +1,63 @@
+# ACTS Test Suite Generation: Fri May 25 15:31:06 EDT 2018
+#  '*' represents don't care value 
+# Degree of interaction coverage: 4
+# Number of parameters: 6
+# Maximum number of values per parameter: 3
+# Number of configurations: 56
+commit_siblings@/home/xha225/PlayGround/TestSubjects/postgresql-9.6.2/SETUP/data2/postgresql.conf,max_connections@/home/xha225/PlayGround/TestSubjects/postgresql-9.6.2/SETUP/data2/postgresql.conf,commit_delay@/home/xha225/PlayGround/TestSubjects/postgresql-9.6.2/SETUP/data2/postgresql.conf,shared_buffers@/home/xha225/PlayGround/TestSubjects/postgresql-9.6.2/SETUP/data2/postgresql.conf,log_statement@/home/xha225/PlayGround/TestSubjects/postgresql-9.6.2/SETUP/data2/postgresql.conf,autovacuum@/home/xha225/PlayGround/TestSubjects/postgresql-9.6.2/SETUP/data2/postgresql.conf
+1,10,1,20,none,off
+1,10,1,61,all,on
+1,10,42,20,all,off
+1,10,42,61,none,on
+1,10,83,20,none,on
+1,10,83,61,all,off
+1,51,1,20,all,on
+1,51,1,61,none,off
+1,51,42,20,none,off
+1,51,42,61,all,on
+1,51,83,20,all,off
+1,51,83,61,none,on
+1,92,1,20,none,on
+1,92,1,61,all,off
+1,92,42,20,all,on
+1,92,42,61,none,off
+1,92,83,20,none,off
+1,92,83,61,all,on
+42,10,1,20,all,off
+42,10,1,61,none,on
+42,10,42,20,none,on
+42,10,42,61,all,off
+42,10,83,20,all,on
+42,10,83,61,none,off
+42,51,1,20,none,off
+42,51,1,61,all,on
+42,51,42,20,all,off
+42,51,42,61,none,on
+42,51,83,20,none,on
+42,51,83,61,all,off
+42,92,1,20,all,off
+42,92,1,61,none,on
+42,92,42,20,none,off
+42,92,42,61,all,on
+42,92,83,20,all,off
+42,92,83,61,none,on
+83,10,1,20,none,on
+83,10,1,61,all,off
+83,10,42,20,all,on
+83,10,42,61,none,off
+83,10,83,20,none,off
+83,10,83,61,all,on
+83,51,1,20,all,off
+83,51,1,61,none,on
+83,51,42,20,none,on
+83,51,42,61,all,off
+83,51,83,20,all,on
+83,51,83,61,none,off
+83,92,1,20,none,off
+83,92,1,61,all,on
+83,92,42,20,all,off
+83,92,42,61,none,on
+83,92,83,20,none,on
+83,92,83,61,all,off
+42,92,1,61,all,off
+42,92,1,20,all,on
