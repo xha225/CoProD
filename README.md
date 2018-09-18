@@ -30,3 +30,75 @@ The returned header should contain: Content-Encoding: gzip
 dpkg -L zlib1g-dev
 
 To enable most modules compiled statically, use "--enable-modules=most"
+-----------Build Postgresql----------
+1. Install readline
+sudo apt-get update
+sudo apt-get install libreadline6 libreadline6-dev
+
+Reference: https://linuxprograms.wordpress.com/2010/10/19/install-readline-linux/
+
+To build without readline library (not recommended)
+./configure --prefix=$(pwd)/SETUP --enable-debug --without-readline
+
+2. Run configure
+2.1. Create a installation folder (e.g. SETUP) to use with --prefix
+Otherwise, the default installation folder is /usr/local/pgsql
+2.2. ./configure --prefix=/home/x/PlayGround/pin-2.14-71313-gcc.4.4.7-linux/source/tools/ManualExamples/TestSubjects/postgresql-9.6.2/SETUP --enable-debug
+3. make
+4. make install
+5. cd SETUP
+6. mkdir data
+# Check INSTALL on the "Getting Started" section
+7. bin/initdb -D "$(pwd)/data"
+8. Run the command printed on the screen to start the db server
+e.g.: bin/pg_ctl -D /home/x/PlayGround/pin-2.14-71313-gcc.4.4.7-linux/source/tools/ManualExamples/TestSubjects/postgresql-9.6.2/SETUP/data -l logfile start
+9. Create DB: bin/createdb testDB
+10. Test DB: bin/psql testDB
+11. Regression test perl scripts
+./src/bin/pg_ctl/t
+src/test/regress/
+12. Restore DB from an SQL dump
+create the data base first if it does not exist, then
+psql dbName < sqlDumpFile
+13. Query a table (don't forget the tailing semi-colon)
+select * from tableName;
+To stop a server running in the background you can type:
+  kill `cat $(pwd)/data/postmaster.pid`
+
+# Also, ./bin/psql --help will show the available commands
+For example, to list databases: psql -l
+to connect to a database: psql yourDbName
+
+# Once inside a DB, you could try the following commands
+# The query command is case sensitive
+SELECT version();
+
+# To issue a command line query against a databse
+./bin/psql -c 'SELECT version();' -d testDB
+
+# Configuration file location
+$yourInstallDir/data/postgresql.conf
+
+# To find the location of your configuration file
+./bin/psql -c 'SHOW CONFIG_FILE' -d yourDbName
+
+# To get sample database
+http://pgfoundry.org/projects/dbsamples/
+
+# Reload configuration settings
+# -D: location of the database storage area
+./bin/pg_ctl reload -D data/
+
+# NOTE
+Because postgresql cannot be started as root, you need to run pin without sudo.
+Also start the database in the background.
+
+# TO UPDATE
+update city set population = 10 where name = 'Shanghai'
+# To list talbes
+\dt
+
+# To create multiple instances
+1. initdb -D pathToDataDb2
+2. Modify postgres.config to change the port number
+3. postgres -D pathToDataDb2 -p portNum
