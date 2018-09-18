@@ -1,5 +1,28 @@
 # CoProD
 Performance modeling
+------------Script Usage-------------
+1. Each project should have a separate copy of the data processing script
+2. There are three major scripts, for example, in the Apache project, you will use
+* apacheGo.sh to get the single option ranking
+* apachePairWiseDriver.sh to get the configuration interaction ranking
+* buildPerfModel.sh to get the final performance prediction model
+
+------------Deployment Procedure-------------
+1. Get the latestes scripts
+2. Build test subject with debug symbols
+3. Compile the latest pintool
+4. Compile the latest java code
+5. ACST, for coverage array
+5. Test run
+
+------------Trouble Shooting-------------
+1. Make sure to check globalVar.sh
+2. Compile the test subject on the deployment machine, make sure to build with debug symbols (-g)
+3. Check the filter options on the instrumentation level and on the post processing script level
+4. If you don't see output from pin, make sure the subject program has debug symbols in it.
+Also, check the source code fileter (G_S_FILTER) in global.var
+
+------------Building-------------
 1. How to build Apache dynamic shared object (DSO)
 http://httpd.apache.org/docs/current/programs/apxs.html
 http://httpd.apache.org/docs/2.2/dso.html
@@ -30,6 +53,7 @@ The returned header should contain: Content-Encoding: gzip
 dpkg -L zlib1g-dev
 
 To enable most modules compiled statically, use "--enable-modules=most"
+
 -----------Build Postgresql----------
 1. Install readline
 sudo apt-get update
@@ -134,26 +158,6 @@ on the model and select "Re-evaluate model on current test"
 
 1. javac -cp ./weka.jar *.java edu/uky/cs/testing/perfmodel/*.java
 
-------------Script Usage-------------
-1. Each project should have a separate copy of the data processing script
-2. There are three major scripts, for example, in the Apache project, you will use
-* apacheGo.sh to get the single option ranking
-* apachePairWiseDriver.sh to get the configuration interaction ranking
-* buildPerfModel.sh to get the final performance prediction model
-------------Deployment Procedure-------------
-1. Get the latestes scripts
-2. Build test subject with debug symbols
-3. Compile the latest pintool
-4. Compile the latest java code
-5. ACST, for coverage array
-5. Test run
-
-------------Trouble Shooting-------------
-1. Make sure to check globalVar.sh
-2. Compile the test subject on the deployment machine, make sure to build with debug symbols (-g)
-3. Check the filter options on the instrumentation level and on the post processing script level
-4. If you don't see output from pin, make sure the subject program has debug symbols in it.
-Also, check the source code fileter (G_S_FILTER) in global.var
 
 ------------HPC-------------
 1. To queue a job:
