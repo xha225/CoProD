@@ -1,0 +1,5 @@
+1. Make sure to check globalVar.sh
+2. Compile the test subject on the deployment machine, make sure to build with debug symbols (-g)
+3. Check the filter options on the instrumentation level and on the post processing script level
+4. If you don't see output from pin, make sure the subject program has debug symbols in it. 
+Also, check the source code fileter (G_S_FILTER) in global.var
