@@ -1,5 +1,8 @@
-1. Make sure to check globalVar.sh
-2. Compile the test subject on the deployment machine, make sure to build with debug symbols (-g)
-3. Check the filter options on the instrumentation level and on the post processing script level
-4. If you don't see output from pin, make sure the subject program has debug symbols in it. 
-Also, check the source code fileter (G_S_FILTER) in global.var
+1. Pin usage
+
+sudo ${HOME}/PlayGround/pin-2.14-71313-gcc.4.4.7-linux/intel64/bin/pinbin -t ${HOME}/PlayGround/pin-2.14-71313-gcc.4.4.7-linux/source/tools/ManualExamples/obj-intel64/CountLoopIns.so -testId 1 -ConfigName "testConfig" -ConfigVal 33 -SourceFilter $(pwd)/SyntheticDpScripts.exp -- SyntheticDpScripts.exp/subject4
+
+NOTES:
+1> make sure to start apache with the binary "httpd" not the bash script.
+2> To start apache with single process, use "httpd -X" 
+3> To stop apache server, use "httpd -k stop"
