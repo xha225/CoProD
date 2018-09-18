@@ -89,7 +89,7 @@ Reload configuration settings
 -D: location of the database storage area
 ./bin/pg_ctl reload -D data/
 
-# NOTE
+NOTE
 Because postgresql cannot be started as root, you need to run pin without sudo.
 Also start the database in the background.
 
@@ -102,6 +102,22 @@ To create multiple instances
 1. initdb -D pathToDataDb2
 2. Modify postgres.config to change the port number
 3. postgres -D pathToDataDb2 -p portNum
+
+------------BUILD LIGHTTPD------------
+1. export CFLAGS=-g
+
+Build without pbzip2 and pcre
+2. ./configure --prefix=$(pwd)/SETUP --without-pcre --without-bzip2
+3. make
+4. make install
+5. Create/Download configuration file (https://redmine.lighttpd.net/projects/1/wiki/TutorialConfiguration)
+6. Create htdocs, conf, and logs folder
+7. Modify configuration file for htdocs, logs, and port, accesslog.filename
+8. Test configuration syntax
+lighttpd -t -f lighttpd.conf
+8. Start server (-D prevents the server to run in the background)
+./sbin/lighttpd -D -f conf/lighttpd.conf
+9. Request a page
 
 ------------WEKA-------------
 1. Put Weka.jar in $PATH (I think it does not matter, a classpath for java should be set instead)
@@ -157,3 +173,4 @@ queue_wcl
 checkjob -v job_id
 7. load java
 module load java/1.8.0_66
+
