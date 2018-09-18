@@ -138,3 +138,22 @@ on the model and select "Re-evaluate model on current test"
 3. Check the filter options on the instrumentation level and on the post processing script level
 4. If you don't see output from pin, make sure the subject program has debug symbols in it.
 Also, check the source code fileter (G_S_FILTER) in global.var
+
+------------HPC-------------
+1. To queue a job:
+sbatch scriptName
+p.s. make sure inside your script you have #SBATCH to specify time, #ofCPC etc
+2. To check queued jobs:
+squeue -u yourUserName
+3. To logon a queue
+Once you check the running jobs with squeue, find out the node name.
+It might be something like: cnode238
+Then, use "ssh cnode238" to logon
+4. To cancel a job
+scancel job_id
+5. To check the queue info
+queue_wcl
+6. Review a pending job's status
+checkjob -v job_id
+7. load java
+module load java/1.8.0_66
