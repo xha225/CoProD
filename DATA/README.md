@@ -1,4 +1,4 @@
-To get data in phase1, we use PIN to instrument code locations such as loops and system calls.<br />
+To get data in phase 1, we use PIN to instrument code locations such as loops and system calls.<br />
 **phase1Raw.data** contains the raw profiling data from pin instrumentation. 
 Since the instrumentation happens on the assembly level, there is no loop structure therefore 
 we need to find a why to post-process the raw data. <br />
