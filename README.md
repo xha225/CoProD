@@ -1,14 +1,15 @@
 # CoProD
 Performance modeling
 
-------------Script Usage-------------
+# Script Usage
 1. Each project should have a separate copy of the data processing script
 2. There are three major scripts, for example, in the Apache project, you will use
+**oneTouch.sh** which calls the following scripts
 * apacheGo.sh to get the single option ranking
 * apachePairWiseDriver.sh to get the configuration interaction ranking
 * buildPerfModel.sh to get the final performance prediction model
 
-------------Deployment Procedure-------------
+# Deployment Procedure
 1. Get the latestes scripts
 2. Build test subject with debug symbols
 3. Compile the latest pintool
@@ -16,14 +17,14 @@ Performance modeling
 5. ACST, for coverage array
 5. Test run
 
-------------Trouble Shooting-------------
+# Trouble Shooting
 1. Make sure to check globalVar.sh
 2. Compile the test subject on the deployment machine, make sure to build with debug symbols (-g)
 3. Check the filter options on the instrumentation level and on the post processing script level
 4. If you don't see output from pin, make sure the subject program has debug symbols in it.
 Also, check the source code fileter (G_S_FILTER) in global.var
 
-------------Building-------------
+# Building
 1. How to build Apache dynamic shared object (DSO)
 http://httpd.apache.org/docs/current/programs/apxs.html
 http://httpd.apache.org/docs/2.2/dso.html
@@ -160,7 +161,7 @@ on the model and select "Re-evaluate model on current test"
 1. javac -cp ./weka.jar *.java edu/uky/cs/testing/perfmodel/*.java
 
 
-------------HPC-------------
+# HPC Scripts
 1. To queue a job:
 sbatch scriptName
 p.s. make sure inside your script you have #SBATCH to specify time, #ofCPC etc
