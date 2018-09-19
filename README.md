@@ -1,5 +1,5 @@
 # CoProD
-Performance modeling
+A Configuration-Aware Performance Modeling Framework
 
 # Script Usage
 1. Each project should have a separate copy of the data processing script
